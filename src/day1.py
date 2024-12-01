@@ -1,5 +1,7 @@
 import numpy as np
 
+
+# Part 1: Sum of absolute difference of ordered pairs
 # Read the file into a list
 with open('../data/input_day1.txt', 'r') as file:
     lines = file.readlines()
@@ -13,3 +15,12 @@ list1.sort()
 list2.sort()
 
 print(sum(abs(list2.astype(int) - list1.astype(int))))
+
+# Part 2: Similarity score
+score_array = []
+for element in list1:
+    appearances = np.count_nonzero(list2==element)
+    print(appearances)
+    score_array.append(int(element) * appearances)
+
+print(sum(score_array))
